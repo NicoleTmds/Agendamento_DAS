@@ -1,5 +1,4 @@
-import JaguarWhite from "../assets/logoJaguar/JaguarWhite.png";
-import { Link, NavLink } from "react-router-dom"; // Usaremos o NavLink para um efeito visual extra
+import { Link, NavLink } from "react-router-dom"; 
 
 function Navbar() {
   return (

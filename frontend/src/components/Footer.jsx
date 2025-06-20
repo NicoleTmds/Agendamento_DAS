@@ -1,11 +1,3 @@
-import instagram from "../assets/logoMidia/instagram-circle.png"
-import twitter from "../assets/logoMidia/twitter.png"
-import telegram from "../assets/logoMidia/telegram-app.png"
-import facebook from "../assets/logoMidia/facebook-f.png"
-import tiktok from "../assets/logoMidia/tiktok.png"
-import pinterest from "../assets/logoMidia/pinterest.png"
-import security from "../assets/logoCards/image.png"
-
 import { Link } from "react-router-dom"
 
 

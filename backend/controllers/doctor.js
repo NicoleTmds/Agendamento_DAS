@@ -52,7 +52,7 @@ const findAvailability = async (req, res) => {
             attributes: ['schedulingTime']
         });
 
-        const bookedSlots = existingAppointments.map(app => app.schedulingTime);
+        const bookedSlots = existingAppointments.map(app => app.schedulingTime.slice(0, 5));
         const availableSlots = allSlots.filter(slot => !bookedSlots.includes(slot));
 
         res.setHeader('Cache-Control', 'no-store');
