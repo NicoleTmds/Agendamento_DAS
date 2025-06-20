@@ -9,24 +9,24 @@ const logger = require('morgan')
 const helmet = require('helmet')
 const cookieParser = require('cookie-parser');
 
-// Routes import
-const routes = require('./routes')
+// Importa o roteador principal que criamos
+const mainRouter = require('./routes')
 
 // Initialize express
 const app = express()
 
-// Port if PORT env variable does not exist in .env
+// Port
 const port = process.env.PORT || 3335
 
-// CORS
+// Configuração de CORS (a sua está ótima)
 const corsOptions = {
-  origin: `${process.env.FRONTEND_URL}`,
+  origin: `${process.env.FRONTEND_URL}`, // Ex: 'http://localhost:5173'
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Adicionei PATCH para o cancelamento
   allowedHeaders: ['Content-Type', 'Authorization'],
 }
 
-// Middleware
+// Middlewares
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -34,10 +34,9 @@ app.use(logger('dev'))
 app.use(helmet())
 app.use(cookieParser())
 
-// Routes middleware
-app.use('/jaguar', routes)
+app.use('/api', mainRouter)
 
 // Port listener
 app.listen(port, () => {
-  console.log(`Server is running on ${port}`)
+  console.log(`Servidor está rodando na porta ${port}`)
 })

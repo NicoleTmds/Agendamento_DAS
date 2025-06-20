@@ -2,21 +2,21 @@
   "development": {
     "username": "postgres",
     "password": "12345",
-    "database": "jaguarapi",
+    "database": "agendamentos_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "postgres",
-    "database": "jaguarapi_test",
+    "database": "agendamentos_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "jaguarapi_production",
+    "database": "agendamentos_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
