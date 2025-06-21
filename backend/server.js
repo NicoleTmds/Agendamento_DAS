@@ -32,7 +32,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'))
 app.use(helmet())
-app.use(cookieParser())
 
 app.use('/api', mainRouter)
 
