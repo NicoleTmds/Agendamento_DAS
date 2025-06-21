@@ -32,7 +32,7 @@ O sistema foi construído seguindo a arquitetura **MVC (Model-View-Controller)**
 
 ## 🖼️ Telas do Projeto
 
-| Tela de Agendamento | Gestão de Consultas | Relatório Admin |
+| Menu | Tela de Agendamento | Gestão de Consultas | Relatório Admin |
 
 
 ---
@@ -122,7 +122,7 @@ erDiagram
 
 ## 🏗️ Arquitetura da Aplicação
 
-Back-end
+# Back-end
 
    A API foi construída em Node.js com Express.js, seguindo uma arquitetura similar ao MVC:
    
@@ -131,7 +131,7 @@ Back-end
     routes: Define os endpoints da API. Cada arquivo de rota agrupa os endpoints de um recurso específico (ex: doctors.js, schedulings.js). Um arquivo index.js centraliza e distribui as rotas para o servidor principal, aplicando prefixos como /api/doctors.**
     server.js: Ponto de entrada da aplicação. Inicializa o Express, aplica middlewares essenciais (cors, helmet, express.json) e registra o roteador principal.
 
-Front-end
+# Front-end
 
   A interface foi desenvolvida em React, utilizando Vite para um ambiente de desenvolvimento ágil:
   
