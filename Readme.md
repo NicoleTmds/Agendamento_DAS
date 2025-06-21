@@ -126,18 +126,18 @@ Back-end
 
    A API foi construída em Node.js com Express.js, seguindo uma arquitetura similar ao MVC:
    
-    **models: Contém as definições dos modelos do Sequelize, que representam as tabelas do banco de dados e suas relações.**
-    **controllers: Camada responsável por toda a lógica de negócio. Recebe as requisições das rotas, interage com os modelos para manipular os dados e formula a resposta a ser enviada.**
-    **routes: Define os endpoints da API. Cada arquivo de rota agrupa os endpoints de um recurso específico (ex: doctors.js, schedulings.js). Um arquivo index.js centraliza e distribui as rotas para o servidor principal, aplicando prefixos como /api/doctors.**
-    **server.js: Ponto de entrada da aplicação. Inicializa o Express, aplica middlewares essenciais (cors, helmet, express.json) e registra o roteador principal.**
+    models: Contém as definições dos modelos do Sequelize, que representam as tabelas do banco de dados e suas relações.
+    controllers: Camada responsável por toda a lógica de negócio. Recebe as requisições das rotas, interage com os modelos para manipular os dados e formula a resposta a ser enviada.
+    routes: Define os endpoints da API. Cada arquivo de rota agrupa os endpoints de um recurso específico (ex: doctors.js, schedulings.js). Um arquivo index.js centraliza e distribui as rotas para o servidor principal, aplicando prefixos como /api/doctors.**
+    server.js: Ponto de entrada da aplicação. Inicializa o Express, aplica middlewares essenciais (cors, helmet, express.json) e registra o roteador principal.
 
 Front-end
 
   A interface foi desenvolvida em React, utilizando Vite para um ambiente de desenvolvimento ágil:
   
-    **Estrutura: As páginas principais (ex: Agendamento, RelatorioAdmin) ficam na pasta /containers (ou /pages), enquanto componentes reutilizáveis (ex: Navbar, Footer) ficam em /components.**
-    **Fluxo de Dados: A comunicação com o back-end é feita através de um cliente Axios centralizado (services/api.js). As respostas da API são armazenadas no estado do componente com o hook useState, e a interface é re-renderizada de forma reativa para exibir os dados.**
-    **Navegação: A navegação entre páginas é gerenciada pela biblioteca React Router DOM.**
+    Estrutura: As páginas principais (ex: Agendamento, RelatorioAdmin) ficam na pasta /containers (ou /pages), enquanto componentes reutilizáveis (ex: Navbar, Footer) ficam em /components.**
+    Fluxo de Dados: A comunicação com o back-end é feita através de um cliente Axios centralizado (services/api.js). As respostas da API são armazenadas no estado do componente com o hook useState, e a interface é re-renderizada de forma reativa para exibir os dados.**
+    Navegação: A navegação entre páginas é gerenciada pela biblioteca React Router DOM.
 
 
 ---
