@@ -124,7 +124,7 @@ erDiagram
 
 ### Back-end
 
-   #### A API foi construída em Node.js com Express.js, seguindo uma arquitetura similar ao MVC:
+   A API foi construída em Node.js com Express.js, seguindo uma arquitetura similar ao MVC:
    
     models: Contém as definições dos modelos do Sequelize, que representam as tabelas do banco de dados e suas relações.
     controllers: Camada responsável por toda a lógica de negócio. Recebe as requisições das rotas, interage com os modelos para manipular os dados e formula a resposta a ser enviada.
@@ -133,7 +133,7 @@ erDiagram
 
 ### Front-end
 
-  #### A interface foi desenvolvida em React, utilizando Vite para um ambiente de desenvolvimento ágil:
+   A interface foi desenvolvida em React, utilizando Vite para um ambiente de desenvolvimento ágil:
   
     Estrutura: As páginas principais (ex: Agendamento, RelatorioAdmin) ficam na pasta /containers (ou /pages), enquanto componentes reutilizáveis (ex: Navbar, Footer) ficam em /components.**
     Fluxo de Dados: A comunicação com o back-end é feita através de um cliente Axios centralizado (services/api.js). As respostas da API são armazenadas no estado do componente com o hook useState, e a interface é re-renderizada de forma reativa para exibir os dados.**
@@ -144,7 +144,7 @@ erDiagram
 
 ## 🧠 Lógica e Implementações Chave
 
-Algumas funcionalidades se destacam pela sua implementação:
+#### Algumas funcionalidades se destacam pela sua implementação:
 
 * **Bloqueio de Horários: A "trava" de horários é implementada de forma proativa. O front-end, ao selecionar um médico e uma data, chama o endpoint GET /api/doctors/:id/availability. O back-end calcula os horários já agendados para aquele dia, subtrai da lista de horários totais e retorna apenas os horários disponíveis. No front-end, a interface renderiza todos os horários possíveis, mas desabilita visualmente (com CSS) aqueles que não estão na lista de disponíveis.**
 
