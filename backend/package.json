@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "dev": "nodemon server.js",
-    "start": "node --dns-result-order=ipv4first server.js",
+    "start": "node server.js",
     "db:reset": "yarn sequelize-cli db:drop && yarn sequelize-cli db:create && yarn sequelize-cli db:migrate && yarn sequelize-cli db:seed:all"
   },
   "keywords": [],
