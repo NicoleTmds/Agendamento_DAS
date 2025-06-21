@@ -1,6 +1,6 @@
 const { Parser } = require('json2csv'); // Importe o Parser
 const PDFDocument = require('pdfkit'); // Importe a biblioteca
-const { Op, fn, col, where } = require('sequelize'); // Importe Op, fn, col, where
+const { Op, fn, col, where } = require('sequelize');
 const { User, Scheduling, Doctor, Specialty, sequelize } = require('../models');
 const transporter = require('../config/nodemailer');
 
@@ -43,16 +43,15 @@ const create = async (req, res) => {
         await t.commit();
         
         try {
-            // A consulta abaixo é a que estava dando o erro de alias
             const fullAppointmentDetails = await Scheduling.findOne({
                 where: { id: newScheduling.id },
                 include: [{
                     model: Doctor,
-                    as: 'doctors', // Usando o alias definido em `models/scheduling.js`
+                    as: 'doctors',
                     attributes: ['name'],
                     include: [{
                         model: Specialty,
-                        as: 'specialties', // CORREÇÃO FINAL: Usando o alias definido em `models/doctor.js`
+                        as: 'specialties', 
                         attributes: ['name']
                     }]
                 }]

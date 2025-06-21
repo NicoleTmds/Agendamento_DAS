@@ -15,7 +15,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/* Rotas filhas que serão renderizadas dentro do Layout */}
-          {/* Usando caminhos em minúsculo como convenção */}
           <Route index element={<Home />} />
           <Route path="agendamento" element={<Agendamento />} />
           <Route path="meus-agendamentos" element={<MeusAgendamentos />} />

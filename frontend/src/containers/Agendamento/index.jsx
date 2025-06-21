@@ -101,7 +101,7 @@ function Agendamento() {
             );
             
             setSuccessMessage(`Agendamento confirmado com sucesso para as ${selectedHorario} do dia ${selectedDate.split('-').reverse().join('/')}! Um e-mail de confirmação foi enviado para ${email}.`);
-            setSelectedHorario(''); // Apenas deseleciona o horário na UI
+            setSelectedHorario(''); 
 
         } catch (err) {
             setError(err.response?.data?.message || "Erro ao realizar o agendamento.");

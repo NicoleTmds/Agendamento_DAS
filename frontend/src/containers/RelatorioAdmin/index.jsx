@@ -31,7 +31,7 @@ function RelatorioAdmin() {
     }, [selectedDate]);
 
 
-    // NOVA FUNÇÃO para cancelar um agendamento
+    // Função para cancelar um agendamento
     const handleCancel = async (agendamentoId) => {
         if (!window.confirm("Você tem certeza que deseja cancelar este agendamento?")) {
             return;
@@ -51,7 +51,7 @@ function RelatorioAdmin() {
         window.open(exportUrl, '_blank');
     };
 
-    // NOVA FUNÇÃO para gerar PDF de um único agendamento
+    // Função para gerar PDF de um único agendamento
     const handleGeneratePdf = (agendamentoId) => {
         const pdfUrl = `${api.defaults.baseURL}/schedulings/${agendamentoId}/pdf`;
         window.open(pdfUrl, '_blank');

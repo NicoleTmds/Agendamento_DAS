@@ -9,16 +9,16 @@ const logger = require('morgan')
 const helmet = require('helmet')
 const cookieParser = require('cookie-parser');
 
-// Importa o roteador principal que criamos
+// Importa a router principal
 const mainRouter = require('./routes')
 
-// Initialize express
+// Inicializa o express
 const app = express()
 
 // Port
 const port = process.env.PORT || 3335
 
-// Configuração de CORS (a sua está ótima)
+// Configuração de CORS
 const corsOptions = {
   origin: `${process.env.FRONTEND_URL}`, // Ex: 'http://localhost:5173'
   credentials: true,

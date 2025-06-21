@@ -17,7 +17,7 @@ const findAll = async (req, res) => {
             attributes: ['id', 'name', 'crm'],
             include: [{
                 model: Specialty,
-                as: 'specialties', // ATENÇÃO: Verifique se o alias 'specialtys' está correto no seu model de Doctor.
+                as: 'specialties',
                 attributes: ['name']
             }]
         });

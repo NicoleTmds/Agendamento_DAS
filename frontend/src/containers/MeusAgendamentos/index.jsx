@@ -80,7 +80,6 @@ function MeusAgendamentos() {
                             agendamentos.map(ag => (
                                 <div key={ag.id} className="p-4 border rounded-md shadow-sm flex justify-between items-center">
                                     <div>
-                                        {/* Acessando os dados com os aliases corretos */}
                                         <p className="font-bold text-lg">{ag.doctors.specialties.name}</p>
                                         <p className="text-gray-600">Com {ag.doctors.name}</p>
                                         <p className="text-gray-600">Em: {new Date(ag.schedulingDate).toLocaleDateString('pt-BR', { timeZone: 'UTC' })} às {ag.schedulingTime}</p>
