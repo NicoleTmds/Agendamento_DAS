@@ -120,39 +120,41 @@ erDiagram
 
 ---
 
-🏗️ Arquitetura da Aplicação
+## 🏗️ Arquitetura da Aplicação
 
-Back-end
-  A API foi construída em Node.js com Express.js, seguindo uma arquitetura similar ao MVC:
-    /models: Contém as definições dos modelos do Sequelize, que representam as tabelas do banco de dados e suas relações.
-    /controllers: Camada responsável por toda a lógica de negócio. Recebe as requisições das rotas, interage com os modelos para manipular os dados e formula a resposta a ser enviada.
-    /routes: Define os endpoints da API. Cada arquivo de rota agrupa os endpoints de um recurso específico (ex: doctors.js, schedulings.js). Um arquivo index.js centraliza e distribui as rotas para o servidor principal, aplicando prefixos como /api/doctors.
-    server.js: Ponto de entrada da aplicação. Inicializa o Express, aplica middlewares essenciais (cors, helmet, express.json) e registra o roteador principal.
+* **Back-end**
+   A API foi construída em Node.js com Express.js, seguindo uma arquitetura similar ao MVC:
+    *models: Contém as definições dos modelos do Sequelize, que representam as tabelas do banco de dados e suas relações.
+    *controllers: Camada responsável por toda a lógica de negócio. Recebe as requisições das rotas, interage com os modelos para manipular os dados e formula a resposta a ser enviada.
+    *routes: Define os endpoints da API. Cada arquivo de rota agrupa os endpoints de um recurso específico (ex: doctors.js, schedulings.js). Um arquivo index.js centraliza e distribui as rotas para o servidor principal, aplicando prefixos como /api/doctors.
+    *server.js: Ponto de entrada da aplicação. Inicializa o Express, aplica middlewares essenciais (cors, helmet, express.json) e registra o roteador principal.
 
-Front-end
+* **Front-end**
   A interface foi desenvolvida em React, utilizando Vite para um ambiente de desenvolvimento ágil:
-    /Estrutura: As páginas principais (ex: Agendamento, RelatorioAdmin) ficam na pasta /containers (ou /pages), enquanto componentes reutilizáveis (ex: Navbar, Footer) ficam em /components.
-    /Fluxo de Dados: A comunicação com o back-end é feita através de um cliente Axios centralizado (services/api.js). As respostas da API são armazenadas no estado do componente com o hook useState, e a interface é re-renderizada de forma reativa para exibir os dados.
-    /Navegação: A navegação entre páginas é gerenciada pela biblioteca React Router DOM.
+    *Estrutura: As páginas principais (ex: Agendamento, RelatorioAdmin) ficam na pasta /containers (ou /pages), enquanto componentes reutilizáveis (ex: Navbar, Footer) ficam em /components.
+    *Fluxo de Dados: A comunicação com o back-end é feita através de um cliente Axios centralizado (services/api.js). As respostas da API são armazenadas no estado do componente com o hook useState, e a interface é re-renderizada de forma reativa para exibir os dados.
+    *Navegação: A navegação entre páginas é gerenciada pela biblioteca React Router DOM.
 
 
 ---
 
-🧠 Lógica e Implementações Chave
+## 🧠 Lógica e Implementações Chave
+
 Algumas funcionalidades se destacam pela sua implementação:
 
-  Bloqueio de Horários: A "trava" de horários é implementada de forma proativa. O front-end, ao selecionar um médico e uma data, chama o endpoint GET /api/doctors/:id/availability. O back-end calcula os horários já agendados para aquele dia, subtrai da lista de horários totais e retorna apenas os horários disponíveis. No front-end, a interface renderiza todos os horários possíveis, mas desabilita visualmente (com CSS) aqueles que não estão na lista de disponíveis.
+* **Bloqueio de Horários: A "trava" de horários é implementada de forma proativa. O front-end, ao selecionar um médico e uma data, chama o endpoint GET /api/doctors/:id/availability. O back-end calcula os horários já agendados para aquele dia, subtrai da lista de horários totais e retorna apenas os horários disponíveis. No front-end, a interface renderiza todos os horários possíveis, mas desabilita visualmente (com CSS) aqueles que não estão na lista de disponíveis.**
 
-  Criação Implícita de Usuário: Para otimizar a experiência do usuário, não há uma etapa de "cadastro" separada. No controller de criação de agendamento (scheduling.js), o método User.findOrCreate do Sequelize é utilizado. Ele verifica se um usuário com o e-mail informado já existe; se sim, o utiliza; se não, cria um novo. Tudo isso ocorre dentro de uma transação do Sequelize para garantir a integridade dos dados: ou o usuário e o agendamento são criados com sucesso, ou nada é salvo.
+* **Criação Implícita de Usuário: Para otimizar a experiência do usuário, não há uma etapa de "cadastro" separada. No controller de criação de agendamento (scheduling.js), o método User.findOrCreate do Sequelize é utilizado. Ele verifica se um usuário com o e-mail informado já existe; se sim, o utiliza; se não, cria um novo. Tudo isso ocorre dentro de uma transação do Sequelize para garantir a integridade dos dados: ou o usuário e o agendamento são criados com sucesso, ou nada é salvo. **
 
-  Geração de Documentos (CSV/PDF): A exportação é gerenciada pelo back-end. Ao receber uma requisição em uma rota de exportação, o controller:
-    Busca os dados no banco.
-    Usa bibliotecas como json2csv ou pdfkit para formatar os dados.
-    Modifica os headers da resposta HTTP (Content-Type e Content-Disposition) para instruir o navegador a iniciar um download do arquivo em vez de tentar exibi-lo na tela.
+* **Geração de Documentos (CSV/PDF): A exportação é gerenciada pelo back-end. Ao receber uma requisição em uma rota de exportação, o controller:**
+    *Busca os dados no banco.
+    *Usa bibliotecas como json2csv ou pdfkit para formatar os dados.
+    *Modifica os headers da resposta HTTP (Content-Type e Content-Disposition) para instruir o navegador a iniciar um download do arquivo em vez de tentar exibi-lo na tela.
 
 ---
 
-🚀 Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
   Back-end: Node.js, Express, Sequelize, PostgreSQL, Nodemailer, Mailtrap, json2csv, pdfkit.
+  
   Front-end: React, Vite, Axios, React Router, Tailwind CSS.
