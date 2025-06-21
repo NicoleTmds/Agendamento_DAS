@@ -6,7 +6,7 @@ require('dotenv').config();
 module.exports = {
   // As linhas abaixo informam ao CLI os caminhos corretos para suas pastas.
   // Isso é uma boa prática e garante que ele sempre encontre os arquivos certos.
-  'config': path.resolve('config', 'config.js'),
+  'config': path.resolve('config', 'config.json'),
   'models-path': path.resolve('models'),
   'seeders-path': path.resolve('seeders'),
   'migrations-path': path.resolve('migrations'),
