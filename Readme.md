@@ -162,3 +162,12 @@ erDiagram
   Back-end: Node.js, Express, Sequelize, PostgreSQL, Nodemailer, Mailtrap, json2csv, pdfkit.
   
   Front-end: React, Vite, Axios, React Router, Tailwind CSS.
+
+---
+## ☁️ Infraestrutura e Deploy
+
+Back-end: A API Node.js está hospedada no Render.com como um Web Service, configurada para auto-deploy a cada push na branch main.
+
+Front-end: A aplicação React foi implantada na Vercel, conectada ao repositório GitHub para Continuous Deployment.
+
+Banco de Dados: O banco de dados PostgreSQL é gerenciado pelo Supabase, garantindo uma instância gratuita, permanente e com acesso via Connection Pooling para maior estabilidade.
